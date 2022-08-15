@@ -3,14 +3,7 @@
 
 # You can use "node:12" or your custom image as a base image of course.
 # We chose this to avoid Docker Hub's throttling during the tutorial steps.
-FROM public.ecr.aws/amazonlinux/amazonlinux:latest
-
-# You can remove this "RUN" instruction if you use a base image with
-# Node.js 12 installation.
-RUN curl -sL https://rpm.nodesource.com/setup_12.x | bash - \
-    && yum install -y nodejs \
-    && yum -y clean all \
-    && rm -rf /var/cache/yum
+FROM node:12
 
 WORKDIR /app
 
